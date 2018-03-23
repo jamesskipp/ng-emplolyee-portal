@@ -1,29 +1,38 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
-
-import { Employee } from './employee.model';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Params } from '@angular/router';
 
+import { Employee } from './employee.model';
+import * as moment from "moment";
+
+/**
+ * EmployeesService manages an array of Employees
+ * and has methods for accessing the employee portal
+ * api
+ */
 @Injectable()
-export class EmployeesService implements OnInit {
+export class EmployeesService {
 
   /**
-   *
+   * An array of Employees - Created from the query to the
+   * employee portal api
    */
   private _employees: Employee[];
 
   /**
-   *
+   * The queryParams involved in the most recent request
+   * to the employee portal api
    */
   private _queryParams: Params;
 
   /**
-   *
+   * The total pages as returned by the employee portal api
    */
   private _totalPages: number;
 
   /**
+   * The url to the employee portal api
    *
    * @type {string}
    */
@@ -31,30 +40,56 @@ export class EmployeesService implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-
-  }
-
+  /**
+   * Getter for queryParams
+   *
+   * @returns {Params}
+   */
   get queryParams(): Params {
     return this._queryParams;
   }
 
+  /**
+   * Setter for queryParams
+   *
+   * @param {Params} value
+   */
   set queryParams(value: Params) {
     this._queryParams = value;
   }
 
+  /**
+   * Getter for employees
+   *
+   * @returns {Employee[]}
+   */
   get employees(): Employee[] {
     return this._employees;
   }
 
+  /**
+   * Setter for employees
+   *
+   * @param {Employee[]} value
+   */
   set employees(value: Employee[]) {
     this._employees = value;
   }
 
+  /**
+   * Getter for totalPages
+   *
+   * @returns {number}
+   */
   get totalPages(): number {
     return this._totalPages;
   }
 
+  /**
+   * Setter for totalPages
+   *
+   * @param {number} value
+   */
   set totalPages(value: number) {
     this._totalPages = value;
   }
@@ -91,6 +126,7 @@ export class EmployeesService implements OnInit {
       // Return the new value of employees wrapped in a promise
       return Promise.resolve(this.employees);
     } else {
+      // Empty response
       return Promise.resolve(null);
     }
   }
@@ -110,9 +146,14 @@ export class EmployeesService implements OnInit {
   }
 
   /**
+   * getEmployee takes the id of a target employee and checks
+   * whether or not that employee already exists in the employees
+   * Employee array. If it does exist, it will return that Employee
+   * without calling the employee portal api, else if it does not
+   * exist, it will call the api.
    *
    * @param {string} id
-   * @returns {Employee | undefined}
+   * @returns {Promise<Employee>}
    */
   getEmployee(id: string): Promise<Employee> {
     let employee;
@@ -141,7 +182,7 @@ export class EmployeesService implements OnInit {
 
   /**
    * Make an http request to the employees rest api given the values for
-   * page, size, and sort. Returns an observable.
+   * page, size, and sort. Returns an observable with the api response
    *
    * @param {string} page
    * @param {string} size
@@ -160,6 +201,8 @@ export class EmployeesService implements OnInit {
   }
 
   /**
+   * Makes an http request to the employee portal api while passing
+   * in the exact id of the wanted Employee
    *
    * @param {string} id
    * @returns {Observable<any>}
@@ -170,7 +213,8 @@ export class EmployeesService implements OnInit {
 
   /**
    * Maps the raw response received from the api to an array
-   * of Employees
+   * of Employees. Changes an array of generic objects to an
+   * array of type Employee
    *
    * @param {Object[]} employeesObj
    * @returns {Employee[]}
@@ -203,6 +247,16 @@ export class EmployeesService implements OnInit {
       employeeObj['hireDate'],
       id
     );
+  }
+
+  /**
+   * Formats a date in MM DD YYYY format.
+   *
+   * @param {Date} date
+   * @returns {string}
+   */
+  formatDate(date: Date): string {
+    return moment(date).format('MMM DD YYYY');
   }
 
 }

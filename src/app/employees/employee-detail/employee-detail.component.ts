@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
-import {Employee} from "../employee.model";
-import {EmployeesService} from "../employees.service";
-import * as moment from "moment";
+import { ActivatedRoute, Params } from '@angular/router';
+
+import { Employee } from '../employee.model';
+import { EmployeesService } from '../employees.service';
 
 @Component({
   selector: 'app-employee-detail',
@@ -11,12 +11,24 @@ import * as moment from "moment";
 })
 export class EmployeeDetailComponent implements OnInit {
 
+  /**
+   * A Single Employee as fetched from the employeesService
+   * array of Employees or direcetly from the api
+   */
   employee: Employee;
+
+  /**
+   * The id of the desired Employee
+   */
   id: string;
 
   constructor(private employeesService: EmployeesService,
               private route: ActivatedRoute) { }
 
+  /**
+   * ngOnInit syncs the id and value of employee with the
+   * EmployeesService
+   */
   ngOnInit() {
     this.employee = this.route.snapshot.data['employee'];
 
@@ -35,7 +47,7 @@ export class EmployeeDetailComponent implements OnInit {
    * @returns {string}
    */
   formatDate(date: Date): string {
-    return moment(date).format('MMM DD YYYY');
+    return this.employeesService.formatDate(date);
   }
 
 }

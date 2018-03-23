@@ -1,20 +1,25 @@
+/* Anchor tag style */
 a {
   color: #484848;
 }
 
+/* Style for a class given to the field thats being sorted */
 .active-sort {
   text-decoration: underline;
 }
 
+/* Reverts the cursor to default style over the table head */
 th:hover {
   cursor: default;
 }
 
+/* Hover styles for table rows */
 tr:hover {
-  cursor: pointer;
   color: black;
+  cursor: pointer;
 }
 
+/* Background color for the table head */
 #employee-thead {
   background-color: lightsteelblue;
 }

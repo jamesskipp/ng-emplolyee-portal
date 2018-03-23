@@ -1,7 +1,10 @@
+<!-- Navbar -->
 <nav class="navbar navbar-dark bg-dark justify-content-between border">
-  <a [routerLink]="['/employees']" [queryParamsHandling]="'merge'" class="navbar-brand"><span style="font-style:italic;">my</span>EmployeePortal</a>
-  <form class="form-inline">
-    <p>
-    </p>
-  </form>
+  <!-- Home ( /employees ) link which maintains queryParams -->
+  <a
+    [routerLink]="['/employees']"
+    [queryParamsHandling]="'merge'"
+    class="navbar-brand">
+    <span style="font-style:italic;">my</span>EmployeePortal
+  </a>
 </nav>

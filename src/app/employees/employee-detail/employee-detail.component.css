@@ -1,8 +1,10 @@
+/* Styles for the employee id container */
 #employee-id {
   background-color: lightsteelblue;
   padding: 10px;
 }
 
+/* Simple class which adds padding */
 .padded {
   padding: 10px;
 }

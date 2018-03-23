@@ -1,19 +1,37 @@
+<!-- Employee Detail container  -->
 <div class="container">
+
+  <!-- Main Row 1 - containing employee name and id -->
   <div class="row" id="employee-id">
+
+    <!-- Row 1 Column 1 - first and last name -->
     <div class="col-lg-6">
       <h5 class="text-left ">{{ employee.firstName + " " + employee.lastName }}</h5>
     </div>
+
+    <!-- Row 1 Column 2 - Buffer column -->
     <div class="col-lg-1"></div>
+
+    <!-- Row 1 Column 3 - Employee ID -->
     <div class="col-lg-5">
       <h5 class="">ID: {{ employee.id }}</h5>
     </div>
+
   </div>
+
+  <!-- Main Row 2 - Buffer row -->
   <div class="row border-bottom buffer">
     <div class="col-sm-12"></div>
   </div>
   <br>
+
+  <!-- Main Row 3 - Employee Details like salary and hireDate -->
   <div class="row">
+
+    <!-- Row 3 Column 1 - Salary and HireDate -->
     <div class="col-sm-6">
+
+      <!-- Row 3 Column 1 Row 1 - HireDate -->
       <div class="row border-bottom border-top padded">
         <div class="col-sm-6">
           <span>Employee Since: </span>
@@ -22,6 +40,8 @@
           <span>{{ formatDate(employee.hireDate) }}</span>
         </div>
       </div>
+
+      <!-- Row 3 Colunn 1 Row 2 - Salary -->
       <div class="row border-bottom padded">
         <div class="col-sm-6">
           <span>Salary: </span>
@@ -31,6 +51,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Row 3 Column 2 - Buffer Column -->
     <div class="col-sm-6"></div>
+
   </div>
 </div>

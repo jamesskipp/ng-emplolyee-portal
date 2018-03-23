@@ -1,9 +1,13 @@
-import { Employee} from './employee.model';
 import { ActivatedRouteSnapshot, Resolve} from '@angular/router';
-import { EmployeesService} from './employees.service';
 import { Observable} from 'rxjs/Observable';
 import { Injectable} from '@angular/core';
 
+import { Employee} from './employee.model';
+import { EmployeesService} from './employees.service';
+
+/**
+ * Resolver for the EmployeesList component
+ */
 @Injectable()
 export class EmployeesResolver implements Resolve<Employee[]> {
 
@@ -11,7 +15,7 @@ export class EmployeesResolver implements Resolve<Employee[]> {
 
   /**
    * Resolver for the employees data. Resolved once the data is returned from the api
-   * and turned into an Array of Employees.
+   * and turned into an Array of Employees. Employees is left empty if an error occurs.
    *
    * @param {ActivatedRouteSnapshot} route
    * @returns {Observable<Employee[]> | Promise<Employee[]> | Employee[]}
@@ -23,8 +27,6 @@ export class EmployeesResolver implements Resolve<Employee[]> {
       size: +route.queryParams['size'] || 10,
       sort: route.queryParams['sort'] || 'lastName',
     };
-
-    console.log(route.queryParams);
 
     // Request from the api
     return this.employeesService.getRequestEmployees(route.queryParams['page'], route.queryParams['size'], route.queryParams['sort'])
