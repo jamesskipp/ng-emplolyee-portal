@@ -58,7 +58,7 @@
             <button class="page-link" aria-label="Previous"
                [disabled]="this.queryParams['page'] <= 0"
                [routerLink]="['/employees']"
-               [queryParams]="{ sort: this.queryParams[sort], size: this.queryParams['size'], page: +this.queryParams['page'] - 1 }">
+               [queryParams]="{ sort: this.queryParams['sort'], size: this.queryParams['size'], page: +this.queryParams['page'] - 1 }">
               <span aria-hidden="true">&laquo;</span>
               <span class="sr-only">Previous</span>
             </button>
@@ -79,7 +79,7 @@
             <button class="page-link" aria-label="Next"
                 [disabled]="(totalPages - this.queryParams['page']) <= 1"
                 [routerLink]="['/employees']"
-                [queryParams]="{ sort: this.queryParams[sort], size: this.queryParams['size'], page: +this.queryParams['page'] + 1 }">
+                [queryParams]="{ sort: this.queryParams['sort'], size: this.queryParams['size'], page: +this.queryParams['page'] + 1 }">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">Next</span>
             </button>
