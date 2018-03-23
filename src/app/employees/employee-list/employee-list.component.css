@@ -1,0 +1,20 @@
+a {
+  color: #484848;
+}
+
+.active-sort {
+  text-decoration: underline;
+}
+
+th:hover {
+  cursor: default;
+}
+
+tr:hover {
+  cursor: pointer;
+  color: black;
+}
+
+#employee-thead {
+  background-color: lightsteelblue;
+}

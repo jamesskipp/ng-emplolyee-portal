@@ -5,11 +5,12 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
 import { EmployeeDetailComponent } from './employees/employee-detail/employee-detail.component';
 import { EmployeesResolver } from './employees/employees-resolver.service';
 import {ErrorComponent} from './error/error.component';
+import {EmployeeResolver} from "./employees/employee-resolver.service";
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'employees'},
   { path: 'employees', component: EmployeeListComponent, resolve: { employees: EmployeesResolver }},
-  { path: 'employees/:id', component: EmployeeDetailComponent, resolve: { employee: EmployeesResolver }},
+  { path: 'employees/:id', component: EmployeeDetailComponent, resolve: { employee: EmployeeResolver }},
   { path: '**', component: ErrorComponent },
 ];
 

@@ -1,0 +1,20 @@
+#footer {
+  /*background-color: var(--gray-dark);*/
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*height: 80px;*/
+}
+
+.footer {
+  background-color: var(--gray-dark);
+  position: fixed;
+  bottom: 0;
+  height: 80px;
+  width: 100%;
+}
+
+#signature {
+  padding-top: 10px;
+  font-size: 14px;
+  color: var(--light);
+}

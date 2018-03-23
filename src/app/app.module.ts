@@ -12,7 +12,8 @@ import { EmployeesService } from './employees/employees.service';
 import { EmployeesResolver } from './employees/employees-resolver.service';
 import { ErrorComponent } from './error/error.component';
 import { AppRoutingModule } from './app-routing.module';
-import {EmployeeListComponent} from './employees/employee-list/employee-list.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { EmployeeResolver } from './employees/employee-resolver.service';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {EmployeeListComponent} from './employees/employee-list/employee-list.com
   providers: [
     EmployeesService,
     EmployeesResolver,
+    EmployeeResolver,
   ],
   bootstrap: [AppComponent]
 })

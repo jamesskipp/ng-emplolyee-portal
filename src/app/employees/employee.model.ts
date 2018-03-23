@@ -3,13 +3,15 @@ export class Employee {
   private _firstName: string;
   private _lastName: string;
   private _salary: string;
-  private _hiredate: string;
+  private _hireDate: Date;
+  private _id: string;
 
-  constructor(firstName?: string, lastName?: string, salary?: string, hiredate?: string) {
+  constructor(firstName?: string, lastName?: string, salary?: string, hireDate: Date = new Date(0), id?: string) {
     this._firstName = firstName;
     this._lastName = lastName;
     this._salary = salary;
-    this._hiredate = hiredate;
+    this._hireDate = hireDate;
+    this._id = id;
   }
 
   get firstName(): string {
@@ -36,11 +38,19 @@ export class Employee {
     this._salary = value;
   }
 
-  get hiredate(): string {
-    return this._hiredate;
+  get hireDate(): Date {
+    return this._hireDate;
   }
 
-  set hiredate(value: string) {
-    this._hiredate = value;
+  set hireDate(value: Date) {
+    this._hireDate = value;
+  }
+
+  get id(): string {
+    return this._id;
+  }
+
+  set id(value: string) {
+    this._id = value;
   }
 }

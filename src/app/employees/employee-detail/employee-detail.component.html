@@ -1,3 +1,36 @@
-<p>
-  employee-detail works!
-</p>
+<div class="container">
+  <div class="row" id="employee-id">
+    <div class="col-lg-6">
+      <h5 class="text-left ">{{ employee.firstName + " " + employee.lastName }}</h5>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-5">
+      <h5 class="">ID: {{ employee.id }}</h5>
+    </div>
+  </div>
+  <div class="row border-bottom buffer">
+    <div class="col-sm-12"></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="row border-bottom border-top padded">
+        <div class="col-sm-6">
+          <span>Employee Since: </span>
+        </div>
+        <div class="col-sm-6">
+          <span>{{ formatDate(employee.hireDate) }}</span>
+        </div>
+      </div>
+      <div class="row border-bottom padded">
+        <div class="col-sm-6">
+          <span>Salary: </span>
+        </div>
+        <div class="col-sm-6">
+          <span>{{ employee.salary }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6"></div>
+  </div>
+</div>
