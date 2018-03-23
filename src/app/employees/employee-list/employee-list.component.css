@@ -23,3 +23,7 @@ tr:hover {
 #employee-thead {
   background-color: lightsteelblue;
 }
+
+.page-item.active .page-link {
+  background-color: var(--gray);
+}
