@@ -4,7 +4,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Employee } from '../employee.model';
 import { EmployeesService } from '../employees.service';
 
-
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -31,6 +30,8 @@ export class EmployeeListComponent implements OnInit {
    * the equivalent value of the employeesService.
    */
   totalPages: number;
+
+  employeeFilter = '';
 
   constructor(private employeesService: EmployeesService,
               private route: ActivatedRoute) { }
@@ -73,5 +74,9 @@ export class EmployeeListComponent implements OnInit {
    */
   formatDate(date: Date): string {
     return this.employeesService.formatDate(date);
+  }
+
+  filterEmployees(filter: string) {
+    this.employees.sort()
   }
 }

@@ -14,6 +14,8 @@ import { ErrorComponent } from './error/error.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { EmployeeResolver } from './employees/employee-resolver.service';
+import { FilterPipe } from './filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,12 +26,14 @@ import { EmployeeResolver } from './employees/employee-resolver.service';
     EmployeesComponent,
     EmployeeDetailComponent,
     EmployeeListComponent,
-    ErrorComponent
+    ErrorComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [
     EmployeesService,
